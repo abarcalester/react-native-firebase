@@ -13,6 +13,9 @@ function MyStack () {
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{
+          title:"Iniciar Sesión"
+        }}
       />
     </Stack.Navigator>
   )
