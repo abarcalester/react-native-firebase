@@ -6,7 +6,6 @@ const Styles = () => {
         StyleSheet.create({
 
             textInput: {
-                outlineStyle: "none",
                 padding: 25,
                 borderBottomWidth: 1,
                 borderBottomColor: "#ccc" 
