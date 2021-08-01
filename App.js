@@ -5,11 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator()
 
+import Login from './screens/Login';
+
 function MyStack () {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={Login}
+        name="Login"
         component={Login}
       />
     </Stack.Navigator>
