@@ -6,7 +6,7 @@ import firebase from 'firebase'
 
 import Styles from './Styles'
 
-const Login = () => {
+const Login = (props) => {
     const [login, setLogin] = useState({
         correo: '',
         pass: ''

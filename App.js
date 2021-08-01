@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 const Stack = createStackNavigator()
 
 import Login from './screens/Login';
+import Register from './screens/Register';
 
 function MyStack () {
   return (
@@ -14,7 +15,14 @@ function MyStack () {
         name="Login"
         component={Login}
         options={{
-          title:"Iniciar Sesión"
+          title: "Iniciar Sesión"
+        }}
+      />
+      <Stack.Screen
+        name="Register"
+        component={Register}
+        options={{
+          title: "Regístrate"
         }}
       />
     </Stack.Navigator>
