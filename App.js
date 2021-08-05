@@ -7,6 +7,8 @@ const Stack = createStackNavigator()
 
 import Login from './screens/Login';
 import Register from './screens/Register';
+import UserList from './screens/UserList';
+import CreationScreen from './screens/CreationScreen';
 
 function MyStack () {
   return (
@@ -23,6 +25,20 @@ function MyStack () {
         component={Register}
         options={{
           title: "Regístrate"
+        }}
+      />
+      <Stack.Screen
+        name="UserList"
+        component={UserList}
+        options={{
+          title: "Lista de citas"
+        }}
+      />
+      <Stack.Screen
+        name="CreationScreen"
+        component={CreationScreen}
+        options={{
+          title: "Registro de citas"
         }}
       />
     </Stack.Navigator>
