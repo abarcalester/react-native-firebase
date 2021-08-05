@@ -23,7 +23,7 @@ const Login = (props) => {
 
     const formValidation = (type=null, value) => {
         if (type === 'correo') {
-            const regex = /^[a-zA-Z0-9_-]+@\w+\.[a-z]{3,}$/g
+            const regex = /[a-zA-Z0-9_-]+@\w+\.[a-z]{3,}/g
             const validEmail = regex.test(value)
             validEmail == false ? setValidEmail(validEmail) : setValidEmail(validEmail) 
         }
