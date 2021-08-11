@@ -23,7 +23,8 @@ const Register = (props) => {
         pass: ''
     })
 
-    const handleChanges = (name, value) => {
+    const handleChanges = (name, valueTrim) => {
+        const value = valueTrim.trim()
         setRegister({...register, [name]: value})
 
         // Calling to formValidation to get updated input value
@@ -58,24 +59,7 @@ const Register = (props) => {
 
     const createUser = () => {
         if (isValidDate === true & isValidEmail === true & isValidPass === true & isEmptyValues === true) { 
-            firebase.auth().createUserWithEmailAndPassword(register.correo, register.pass)
-            .then((userCredential) => {
-                props.navigation.navigate('UserList', {
-                    userId: userCredential.user.uid
-                })
-            })
-            .catch(function (error) {
-                let message;
-                switch (error.message) {
-                    case 'The email address is already in use by another account.':
-                        message = 'El correo está siendo utilizado por otra cuenta.'
-                        break;
-                
-                    default:
-                        break;
-                }
-                alert(message)
-            })
+            props.navigation.navigate('UserList')
         }   
     }
 

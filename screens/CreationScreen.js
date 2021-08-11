@@ -6,7 +6,6 @@ import firebase from '../database/firebase'
 import Styles from './Styles'
 
 const CreationScreen = (props) => {
-    const userId = props.route.params.userId
     let arrDuplicatesInDate = [] 
     let arrDuplicatesInTime = [] 
 
@@ -73,17 +72,6 @@ const CreationScreen = (props) => {
         inDate === true & inTime === true ? setDuplicate(true) : setDuplicate(false)
     }
 
-    useEffect(() => {
-        const starCountRef = firebase.database().ref('users/' + userId + '/');
-        starCountRef.on('value', (snapshot) => {
-            snapshot.forEach(function(childSnapshot) {
-                const childData = childSnapshot.val();
-                arrDuplicatesInDate.push(childData.fecha) 
-                arrDuplicatesInTime.push(childData.hora) 
-            });
-        });
-    })
-
 
     const addToList = () => {
 
@@ -91,18 +79,7 @@ const CreationScreen = (props) => {
             isValidName === true & isValidCode === true & 
             isValidDate === true & isValidHour === true
         ) {
-            if (duplicate === false) {
-                firebase.database().ref(`users/${userId}/${Date.now()}`).set({
-                    id: Date.now(),
-                    nombre: state.nombre,
-                    codigo: state.codigo,
-                    fecha: state.fecha,
-                    hora: state.hora
-                    
-                })
-    
-                props.navigation.navigate('UserList')
-            }
+            props.navigation.navigate('UserList')
         }
     }
 

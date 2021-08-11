@@ -12,7 +12,8 @@ import CreationScreen from './screens/CreationScreen';
 
 function MyStack () {
   return (
-    <Stack.Navigator>
+
+      <Stack.Navigator>
       <Stack.Screen
         name="Login"
         component={Login}
@@ -27,20 +28,21 @@ function MyStack () {
           title: "Regístrate"
         }}
       />
-      <Stack.Screen
-        name="UserList"
-        component={UserList}
-        options={{
-          title: "Lista de citas"
-        }}
-      />
-      <Stack.Screen
-        name="CreationScreen"
-        component={CreationScreen}
-        options={{
-          title: "Registro de citas"
-        }}
-      />
+        <Stack.Screen
+          name="CreationScreen"
+          component={CreationScreen}
+          options={{
+            title: "Registro de citas"
+          }}
+        />
+          <Stack.Screen
+            name="UserList"
+            component={UserList}
+            options={{
+              title: "Lista de citas"
+            }}
+          />
+
     </Stack.Navigator>
   )
 }

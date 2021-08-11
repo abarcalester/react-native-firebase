@@ -16,7 +16,8 @@ const Login = (props) => {
     const [isValidPass, setValidPass] = useState()
     const [passMessage, setPassMessage] = useState()
 
-    const handleChanges = (name, value) => {
+    const handleChanges = (name, valueTrim) => {
+        const value = valueTrim.trim()
         setLogin({...login, [name]: value})
         formValidation(name, value)
     }
@@ -24,7 +25,7 @@ const Login = (props) => {
     const formValidation = (type=null, value) => {
         if (type === 'correo') {
             const regex = /[a-zA-Z0-9_-]+@\w+\.[a-z]{3,}/g
-            const validEmail = regex.test(value)
+            const validEmail = regex.test(value.trim())
             validEmail == false ? setValidEmail(validEmail) : setValidEmail(validEmail) 
         }
 
@@ -48,17 +49,7 @@ const Login = (props) => {
         }
 
         if (isValidEmail, isValidPass) {
-            firebase.auth().signInWithEmailAndPassword(login.correo, login.pass)
-            .then((userCredential) => {
-                props.navigation.navigate('UserList', {
-                    userId: userCredential.user.uid
-                })
-            })
-            .catch((error) => {
-                setValidField(false)
-                setPassMessage('La contraseña o el correo son incorrectos, omita el mensaje e intente de nuevo')
-                console.log(error);
-            })
+            props.navigation.navigate('UserList')
         }
     }
     

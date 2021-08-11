@@ -6,21 +6,9 @@ import firebase from '../database/firebase'
 import Styles from './Styles'
 
 const UserList = (props) => {
-    const userId = props.route.params.userId
     const [listOne, setListOne] = useState([])
 
-    useEffect(() => {
-        const starCountRef = firebase.database().ref('users/' + userId + '/');
-        starCountRef.on('value', (snapshot) => {
-            const arrList = []
-            snapshot.forEach(function(childSnapshot) {
-                const childData = childSnapshot.val();
-                arrList.push(childData)
-                
-            });
-            setListOne(arrList)
-        });
-    }, [])
+   
     return (
         <ScrollView>
             {
@@ -46,22 +34,14 @@ const UserList = (props) => {
                 title="Crear una cita"
                 style={Styles.submitButton}
                 onPress={() => { 
-                    props.navigation.navigate('CreationScreen', {
-                        userId
-                    }) 
+                    props.navigation.navigate('CreationScreen')
                 }}
             />
             <Button 
                 title="Cerrar Sesión"
                 style={Styles.submitButton}
                 onPress={() => { 
-                    firebase.auth().signOut()
-                    .then(() => {
-                        props.navigation.navigate('Login')
-                    })
-                    .catch(() => {
-                        alert(error)
-                    })
+                    props.navigation.navigate('Login')
                 }}
             />
         </ScrollView>

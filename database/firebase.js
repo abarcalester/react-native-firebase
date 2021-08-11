@@ -2,13 +2,14 @@ import firebase from "firebase";
 
 import "firebase/firebase"
 
-let firebaseConfig = {
-    apiKey: "AIzaSyCAt9wRlYSymCcWyqHhAuJKG8GZkW3qMPs",
-    authDomain: "fir-complete-ae5a3.firebaseapp.com",
-    projectId: "fir-complete-ae5a3",
-    storageBucket: "fir-complete-ae5a3.appspot.com",
-    messagingSenderId: "876575875350",
-    appId: "1:876575875350:web:deaf59b18a32f96934f037"
+const firebaseConfig = {
+    apiKey: "AIzaSyAEOp-UUk7jAVg2wfx-jXqIVxGP0rWIKXU",
+    authDomain: "react-native-firebase-754dd.firebaseapp.com",
+    databaseURL: "https://react-native-firebase-754dd-default-rtdb.firebaseio.com",
+    projectId: "react-native-firebase-754dd",
+    storageBucket: "react-native-firebase-754dd.appspot.com",
+    messagingSenderId: "1030843930454",
+    appId: "1:1030843930454:web:0c38a31172d5c02e18e8f7"
 };
 
 firebase.initializeApp(firebaseConfig);
