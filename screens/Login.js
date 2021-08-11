@@ -45,7 +45,7 @@ const Login = (props) => {
         }  else {
             setValidField(false)
             setPassMessage('Todos los campos son requeridos, prueba de nuevo')
-            alert('Todos los campos son requeridos, prueba otra vez')
+            alert('Todos los campos son requeridos, prueba otra vez ')
         }
 
         if (isValidEmail, isValidPass) {
